@@ -1,0 +1,13 @@
+# .gitignore
+__pycache__/
+*.pt
+*.pth
+*.zip
+*.rar
+*.csv
+*.mp4
+*.npy
+*.h5
+datasets/
+outputs/
+checkpoints/
