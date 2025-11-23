@@ -69,11 +69,11 @@ def train_loop(train_loader, dev_loader, model, criterion, optimizer, scheduler,
         train_preds = torch.cat(all_preds, dim=0)
         train_labels = torch.cat(all_labels, dim=0)
         train_metrics = calculate_f1(train_preds, train_labels)
-        print(f"Epoch {epoch+1} TRAIN f1_weighted: {train_metrics['f1_weighted']:.4f} acc: {train_metrics['accuracy']:.4f} avg_loss: {total_loss/len(train_loader):.4f}")
+        print(f"TRAIN f1_weighted: {train_metrics['f1_weighted']:.4f} acc: {train_metrics['accuracy']:.4f} avg_loss: {total_loss/len(train_loader):.4f}")
 
         # validation
         dev_metrics = evaluate(dev_loader, model, criterion, device)
-        print(f"Epoch {epoch+1} DEV  f1_weighted: {dev_metrics['f1_weighted']:.4f} acc: {dev_metrics['accuracy']:.4f} loss: {dev_metrics['loss']:.4f}")
+        print(f"DEV f1_weighted: {dev_metrics['f1_weighted']:.4f} acc: {dev_metrics['accuracy']:.4f} loss: {dev_metrics['loss']:.4f}")
 
         # save best
         if dev_metrics['f1_weighted'] > best_score:
@@ -95,9 +95,9 @@ if __name__ == "__main__":
     torch.manual_seed(42)
 
     # === CONFIG ===
-    train_path = "data/train.json"  # sửa path phù hợp
-    dev_path = "data/dev.json"
-    test_path = "data/test.json"
+    train_path = "D:\DS201\DS201.2_TH\BaiTH3\datasets\UIT-VSFC\UIT-VSFC-train.json"  
+    dev_path = "D:\DS201\DS201.2_TH\BaiTH3\datasets\UIT-VSFC\UIT-VSFC-dev.json"
+    test_path = "D:\DS201\DS201.2_TH\BaiTH3\datasets\UIT-VSFC\UIT-VSFC-test.json"
     max_len = 100
     batch_size = 16
     num_epochs = 10
@@ -142,7 +142,7 @@ if __name__ == "__main__":
 
     # train
     best = train_loop(train_loader, dev_loader, model, criterion, optimizer, scheduler, num_epochs, device, save_path='best_model.pth')
-    print("Training finished. Best dev f1:", best)
+    print("Training finished. Best f1:", best)
 
     # load best and evaluate on test
     if os.path.exists('best_model.pth'):

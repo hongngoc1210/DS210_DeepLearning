@@ -55,7 +55,7 @@ class GRUClassifier(nn.Module):
         attn_weights = torch.softmax(attn_scores, dim=1)  # [B, L]
         context = torch.bmm(attn_weights.unsqueeze(1), output).squeeze(1)  # [B, H*D]
 
-        # Alternatively you can use hidden states: combine both if wanted
+        # use hidden states: combine both
         final_hidden = context  # use attention context as representation
 
         final_hidden = self.layer_norm(final_hidden)
