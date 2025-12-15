@@ -1,0 +1,19 @@
+# Data
+data_dir: D:\DS201\DS201.2_TH\Lab4\datasets\PhoMT
+train: small-train.json
+dev: small-dev.json
+test: small-test.json
+
+
+# Model
+d_model: 256
+n_encoder: 3
+n_decoder: 3
+dropout: 0.2
+
+
+# Training
+batch_size: 32
+epochs: 20
+lr: 0.001
+max_len: 100
