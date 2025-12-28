@@ -1,0 +1,16 @@
+#Data
+data_dir: D:\DS201\DS201.2_TH\Lab5\datasets\PhoNER
+data_type: word
+
+#Training
+batch_size: 16
+epochs: 20
+lr: 0.001
+max_len: 128
+
+#Model
+d_model: 256
+n_heads: 8
+n_layers: 4
+d_ff: 1024
+dropout: 0.1

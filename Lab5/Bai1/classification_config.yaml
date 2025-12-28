@@ -1,0 +1,22 @@
+# Data
+data_dir: D:\DS201\DS201.2_TH\Lab5\datasets\UIT-ViOCD
+train: train.json
+dev: dev.json
+test: test.json
+
+
+# Model
+d_model: 256
+head: 4
+n_layers: 
+labels: 4
+d_ff: 512
+dropout: 0.2
+labels: 2
+
+
+# Training
+batch_size: 32
+epochs: 20
+lr: 0.001
+max_len: 100
